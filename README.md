@@ -30,7 +30,7 @@ After installation, you can initialize the data:
 python initialize_data.py
 ```
 
-The, implement the graph on `src/graph.py` and run the agent:
+Then, implement the graph on `src/graph.py` and run the agent:
 
 ```bash
 python run.py
