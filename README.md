@@ -1,6 +1,6 @@
 # RAG AI Agent
 
-A Retrieval Augmented Generation system using vector databases to enhance LLM responses with relevant context.
+A Retrieval Augmented Generation system using vector databases to enhance LLM responses with relevant context, based on [LangGraph's guide](https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_agentic_rag/).
 
 ## Overview
 
@@ -12,66 +12,26 @@ This project:
 
 ## Installation
 
-Install the package with Poetry:
+Clone and install the package with Poetry:
 
 ```bash
-# Clone the repository
 git clone https://github.com/yourusername/rag-ai-agent.git
 cd rag-ai-agent
-
-# Install the package
+python -m venv .venv
+source .venv/bin/activate
 poetry install
-```
-
-Or install in development mode:
-
-```bash
-poetry install -e .
 ```
 
 ## Usage
 
-After installation, you can use the package:
-
-```python
-# Initialize the data
-from rag_ai_agent.data import initialize_data
-initialize_data.setup()
-
-# Run the agent
-from rag_ai_agent.agent import run
-run.start_agent()
-```
-
-You can also use the CLI commands:
+After installation, you can initialize the data:
 
 ```bash
-# Activate Poetry environment
-poetry shell
-
-# Initialize data
-rag-init
-
-# Run the agent
-rag-agent
+python initialize_data.py
 ```
 
-## Customization
+The, implement the graph on `src/graph.py` and run the agent:
 
-- **Custom Datasets**:
-
-```python
-from rag_ai_agent.data import initialize_data
-from your_dataset import CustomDataset
-
-initialize_data.setup(dataset=CustomDataset)
+```bash
+python run.py
 ```
-
-- **Custom Embeddings**:
-
-```python
-from rag_ai_agent.embeddings import get_embedding_function
-custom_embeddings = get_embedding_function(model_name="your-model-name")
-```
-
-- **Custom LLM**: Modify the LLM configuration in `rag_ai_agent.config`

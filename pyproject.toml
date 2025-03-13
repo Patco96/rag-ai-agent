@@ -16,7 +16,8 @@ dependencies = [
     "langchain-core (>=0.3.44,<0.4.0)",
     "langchain-ollama (>=0.2.3,<0.3.0)",
     "ipython (>=9.0.2,<10.0.0)",
-    "langchain-chroma (>=0.2.2,<0.3.0)"
+    "langchain-chroma (>=0.2.2,<0.3.0)",
+    "langchain-openai (>=0.3.8,<0.4.0)"
 ]
 
 

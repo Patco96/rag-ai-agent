@@ -1,8 +1,7 @@
 from typing import Annotated, Literal, Sequence
 
 from langchain_core.prompts import PromptTemplate
-from langchain_ollama import ChatOllama
-from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 
 from pydantic import BaseModel, Field
 
@@ -30,7 +29,7 @@ def grade_documents(state) -> Literal["generate", "rewrite"]:
         binary_score: str = Field(description="Relevance score 'yes' or 'no'")
 
     # LLM
-    model = ChatOllama(model="llama3:latest", streaming=True)
+    model = ChatOpenAI(model="gpt-4o", streaming=True, temperature=0)
 
     # LLM with tool and validation
     llm_with_tool = model.with_structured_output(grade)

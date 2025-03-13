@@ -4,9 +4,10 @@ from typing_extensions import TypedDict
 from langchain import hub
 from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
-from langchain_ollama import ChatOllama
-
+from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
+
+from src.retriever import retriever_tool
 
 
 def agent(state):
@@ -22,8 +23,8 @@ def agent(state):
     """
     print("---CALL AGENT---")
     messages = state["messages"]
-    model = ChatOpenAI(temperature=0, streaming=True, model="gpt-4-turbo")
-    model = model.bind_tools(tools)
+    model = ChatOpenAI(model="gpt-4o", streaming=True, temperature=0)
+    model = model.bind_tools([retriever_tool])
     response = model.invoke(messages)
     # We return a list because this will get added to the existing list
     return {"messages": [response]}
